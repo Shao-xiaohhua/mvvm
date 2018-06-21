@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MVVM</title>
+</head>
+<body>
+  <div id="app">
+    <h1>{{song}}</h1>
+    <p>《{{album.theme}}》是{{singer}}2005年11月发行的专辑</p>
+    <p>主打歌为：{{album.theme}}</p>
+    <p>作词人为：{{singer}}等人</p>
+    为你弹肖邦的{{album.theme}}
+    <p>{{c}}</p>
+    <input v-model="c" type="text">
+  </div>
+  <!-- 实现mvvm -->
+  <script src="mvvm.js"></script>
+  <script>
+    let mvvm = new Mvvm({
+      el: '#app',
+      data: {
+        song: '发如雪',
+        album: {
+          name: '十一月的肖邦',
+          theme: '夜曲'
+        },
+        singer: '周杰伦',
+        c: ''
+      }
+    });
+    mvvm.song = '周杰不是人1'
+  </script>
+</body>
+</html>
